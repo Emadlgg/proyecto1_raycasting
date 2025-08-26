@@ -1,0 +1,38 @@
+[package]
+name = "proyecto1"
+version = "0.3.0"
+edition = "2021"
+description = "The Backrooms Escape - Enhanced 3D Raycaster with Texture and Audio Support"
+authors = ["Your Name"]
+
+[profile.dev]
+opt-level = 3
+debug = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[dependencies]
+raylib = "5.5.1"
+rand = "0.8.5"
+rodio = "0.17.3"
+
+# Para mejor manejo de errores
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Para logging opcional
+log = "0.4"
+env_logger = "0.10"
+
+[features]
+default = ["textures", "audio"]
+textures = []  # Feature flag para texturas
+audio = []     # Feature flag para audio
+debug = []     # Feature flag para debug adicional
+
+[[bin]]
+name = "backrooms_escape"
+path = "src/main.rs"
