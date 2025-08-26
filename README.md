@@ -108,7 +108,7 @@ Te has "noclipeado" fuera de la realidad y has caído en los **Backrooms** - esp
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Clonar el proyecto
-git clone [URL_DEL_REPOSITORIO]
+git clone https://github.com/Emadlgg/proyecto1_raycasting.git
 cd proyecto1
 ```
 
