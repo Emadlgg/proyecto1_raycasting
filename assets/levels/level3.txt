@@ -1,0 +1,29 @@
+bbbbbbbbbbbbbbbbbbbbb
+b                   b
+b bbbbbbbbbbbbb bbb b
+b bk              b b
+b b bbbbbbbbb bbb b b
+b b b           b   b
+b b b bbbbbbbbb b b b
+b b b b         b b b
+b b b b bbk b b b b b
+b b b b b   b b b b b
+b b b b b t b b b b b
+b b b b bbbbb b b b b
+b b b b       b b b b
+b b # bbbbbbbbb b b b
+b b b     c     b b b
+b b bbbbbbbbbbbbb b b
+b b               b b
+b bbbbbbbbbbbbbbb b b
+b b           t b b b
+b b bbbbbbbbb b b b b
+b b b   k   b b b b b
+b b b bbbbb b b b b b
+b b b   c   b b b b b
+b b bbbbbbb b b b b b
+b b         b   b b b
+b bbbbbbbbbbb bbb b b
+b                 b b
+bbbbbbbbbbbbbbbbbeb b
+bbbbbbbbbbbbbbbbbbbbb
