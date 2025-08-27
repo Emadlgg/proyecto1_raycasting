@@ -2,7 +2,7 @@
 name = "proyecto1"
 version = "0.3.0"
 edition = "2021"
-description = "The Backrooms Escape - Enhanced 3D Raycaster with Texture and Audio Support"
+description = "The Backrooms Escape"
 authors = ["Your Name"]
 
 [profile.dev]

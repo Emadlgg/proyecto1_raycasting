@@ -64,7 +64,6 @@ impl TextureManager {
         self.fallback_colors.insert('|', Color::new(190, 190, 110, 255));
         self.fallback_colors.insert('r', Color::new(180, 60, 60, 255));   // Rojo
         self.fallback_colors.insert('b', Color::new(60, 60, 180, 255));   // Azul
-        self.fallback_colors.insert('g', Color::new(60, 180, 60, 255));   // Verde
         self.fallback_colors.insert('e', Color::new(100, 255, 100, 255)); // Portal
     }
 
@@ -76,7 +75,6 @@ impl TextureManager {
             ('|', "assets/textures/walls/wall_yellow.png"),
             ('r', "assets/textures/walls/wall_red.png"),
             ('b', "assets/textures/walls/wall_blue.png"),
-            ('g', "assets/textures/walls/wall_green.png"),
             ('e', "assets/textures/walls/exit_portal.png"),
         ];
 
