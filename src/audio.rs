@@ -61,7 +61,7 @@ impl AudioManager {
     }
 
     fn load_all_audio(&mut self) {
-        // Cargar música de fondo
+        // Cargar mÃºsica de fondo
         self.load_audio_file("menu_music", "assets/sounds/music/menu_sound.ogg");
         self.load_audio_file("background_music", "assets/sounds/music/background_ambience.ogg");
         
@@ -104,7 +104,7 @@ impl AudioManager {
             self.footsteps_timer = 0.0;
         }
 
-        // Verificar si la música de fondo necesita reiniciarse (loop)
+        // Verificar si la mÃºsica de fondo necesita reiniciarse (loop)
         if self.music_playing {
             let music_sink = self.music_sink.clone();
             if let Ok(sink_option) = music_sink.try_lock() {
@@ -127,7 +127,7 @@ impl AudioManager {
     }
 
     fn play_music(&mut self, music_key: &str, music_type: MusicType) {
-        // Si ya está sonando la misma música, no hacer nada
+        // Si ya estÃ¡ sonando la misma mÃºsica, no hacer nada
         if self.music_playing && self.current_music_type == Some(music_type) {
             return;
         }
@@ -184,7 +184,7 @@ impl AudioManager {
         self.current_music_type = None;
     }
 
-    // Pausar música temporalmente para SFX importantes
+    // Pausar mÃºsica temporalmente para SFX importantes
     pub fn stop_music_for_sfx(&mut self) {
         if self.music_playing {
             if let Ok(sink_option) = self.music_sink.try_lock() {
@@ -195,7 +195,7 @@ impl AudioManager {
         }
     }
 
-    // Reanudar música después de SFX importantes
+    // Reanudar mÃºsica despuÃ©s de SFX importantes
     pub fn resume_music_after_sfx(&mut self) {
         if self.music_playing {
             if let Ok(sink_option) = self.music_sink.try_lock() {
@@ -231,12 +231,12 @@ impl AudioManager {
         }
     }
 
-    // SFX importante que detiene música temporalmente
+    // SFX importante que detiene mÃºsica temporalmente
     pub fn play_important_sfx(&mut self, sound_name: &str) {
         self.stop_music_for_sfx();
         self.play_sound_effect(sound_name);
         
-        // Programar reanudación de música después de un delay
+        // Programar reanudaciÃ³n de mÃºsica despuÃ©s de un delay
         let music_sink = self.music_sink.clone();
         std::thread::spawn(move || {
             std::thread::sleep(Duration::from_secs(3));
@@ -252,7 +252,7 @@ impl AudioManager {
         self.sfx_volume = volume.clamp(0.0, 1.0);
     }
 
-    // Funciones específicas de eventos del juego
+    // Funciones especÃ­ficas de eventos del juego
     pub fn play_key_pickup_sound(&self) {
         self.play_sound_effect("key_pickup");
     }
@@ -269,13 +269,13 @@ impl AudioManager {
         self.play_sound_effect("portal_reached");
     }
 
-    // SFX de victoria que detiene la música
+    // SFX de victoria que detiene la mÃºsica
     pub fn play_victory_sound(&mut self) {
         self.stop_music_for_sfx();
         self.play_sound_effect("level_complete");
     }
 
-    // Reanudar música del juego después de victoria
+    // Reanudar mÃºsica del juego despuÃ©s de victoria
     pub fn resume_game_music_after_victory(&mut self) {
         std::thread::spawn({
             let music_sink = self.music_sink.clone();
@@ -330,9 +330,9 @@ impl AudioManager {
             let cursor = Cursor::new(footstep_data.clone());
             
             if let Ok(source) = Decoder::new(cursor) {
-                // Variar pitch ligeramente para más realismo
+                // Variar pitch ligeramente para mÃ¡s realismo
                 let pitch_variation = 0.9 + (rand::random::<f32>() * 0.2);
-                let volume_variation = self.sfx_volume * 0.4; // Pasos más suaves
+                let volume_variation = self.sfx_volume * 0.4; // Pasos mÃ¡s suaves
                 
                 if let Ok(temp_sink) = Sink::try_new(&self.stream_handle) {
                     // Truncar el sonido a solo 1-2 segundos
@@ -406,7 +406,7 @@ impl AudioManager {
         }
     }
 
-    // Programar reanudación de música después de victoria
+    // Programar reanudaciÃ³n de mÃºsica despuÃ©s de victoria
     fn schedule_music_resume(&mut self) {
         let music_sink = self.music_sink.clone();
         let stream_handle = self.stream_handle.clone();
@@ -433,7 +433,7 @@ impl AudioManager {
         });
     }
 
-    // Forzar reanudación inmediata de música de juego
+    // Forzar reanudaciÃ³n inmediata de mÃºsica de juego
     pub fn resume_background_music_now(&mut self) {
         if !self.music_playing || self.current_music_type != Some(MusicType::Background) {
             self.play_background_music();

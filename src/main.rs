@@ -76,7 +76,7 @@ fn main() {
 
         match game_state.mode {
             GameMode::Welcome => {
-                // Reproducir música de menú si no está sonando
+                // Reproducir mÃºsica de menÃº si no estÃ¡ sonando
                 if !audio_manager.is_music_playing() || 
                     audio_manager.get_current_music_type() != Some(MusicType::Menu) {
                     audio_manager.play_menu_music();
@@ -89,7 +89,7 @@ fn main() {
                     // Cargar sprites del maze
                     sprite_manager.load_sprites_from_maze(&game_state.data.maze, block_size);
                     
-                    // Cambiar a música de fondo del juego
+                    // Cambiar a mÃºsica de fondo del juego
                     audio_manager.play_background_music();
                 }
             },
@@ -102,7 +102,7 @@ fn main() {
                 let maze_clone = game_state.data.maze.clone();
                 
                 if !maze_clone.is_empty() && !maze_clone[0].is_empty() {
-                    // Detectar si el jugador se está moviendo
+                    // Detectar si el jugador se estÃ¡ moviendo
                     let is_moving = window.is_key_down(KeyboardKey::KEY_W) ||
                                    window.is_key_down(KeyboardKey::KEY_S) ||
                                    window.is_key_down(KeyboardKey::KEY_A) ||
@@ -202,7 +202,7 @@ fn main() {
                         sprite_manager.load_sprites_from_maze(&game_state.data.maze, block_size);
                         game_state.mode = GameMode::Playing;
                         
-                        // Reanudar música de fondo
+                        // Reanudar mÃºsica de fondo
                         audio_manager.resume_background_music_now();
                     } else {
                         audio_manager.play_game_event(GameAudioEvent::LevelComplete);
@@ -215,9 +215,9 @@ fn main() {
         // Mostrar framebuffer
         framebuffer.swap_buffers(&mut window, &raylib_thread);
         
-        // Calcular delta time para próximo frame
+        // Calcular delta time para prÃ³ximo frame
         let frame_time = frame_start.elapsed();
-        delta_time = frame_time.as_secs_f32().min(0.033); // Cap a ~30 FPS mínimo
+        delta_time = frame_time.as_secs_f32().min(0.033); // Cap a ~30 FPS mÃ­nimo
         
         // Limitar FPS
         std::thread::sleep(Duration::from_millis(16));
@@ -227,7 +227,7 @@ fn main() {
 fn render_border_frame(framebuffer: &mut Framebuffer, x: u32, y: u32, width: u32, height: u32, color: Color) {
     framebuffer.set_current_color(color);
     
-    // Líneas horizontales
+    // LÃ­neas horizontales
     for px in x..=(x + width) {
         if px < framebuffer.width {
             if y < framebuffer.height {
@@ -239,7 +239,7 @@ fn render_border_frame(framebuffer: &mut Framebuffer, x: u32, y: u32, width: u32
         }
     }
     
-    // Líneas verticales
+    // LÃ­neas verticales
     for py in y..=(y + height) {
         if py < framebuffer.height {
             if x < framebuffer.width {
@@ -277,11 +277,11 @@ fn render_hud_enhanced(
     // Marco del HUD
     render_border_frame(framebuffer, 5, 5, hud_width - 5, hud_height - 5, Color::new(100, 100, 150, 255));
     
-    // Información del juego
+    // InformaciÃ³n del juego
     framebuffer.set_current_color(Color::WHITE);
     render_text(framebuffer, "ESTADO", 15, 15);
     
-    // Vidas con color dinámico
+    // Vidas con color dinÃ¡mico
     let lives_color = if game_data.lives > 2 { 
         Color::GREEN 
     } else if game_data.lives == 2 { 
